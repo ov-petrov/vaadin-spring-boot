@@ -6,8 +6,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
+@SuppressWarnings("serial")
 public class User {
-    @Id
+
+	public User() {}
+
+	@Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Integer id;
 
@@ -38,7 +42,10 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-    
-    
+
+	@Override
+    public String toString() {
+		return getName() + " " + getEmail();
+	}
 }
 
